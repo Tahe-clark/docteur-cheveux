@@ -121,13 +121,22 @@ const App: React.FC = () => {
               {isDark && <h2 className="mb-4 fw-bold">{s.subtitle}</h2>}
               
               {/* BARRE DE RECHERCHE FIGMA */}
+                            
               <div className="mb-4">
+                {/* On injecte ce style dynamique pour forcer la visibilité du placeholder */}
+                <style>{`
+                  .custom-search::placeholder {
+                    color: ${isDark ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.5)'} !important;
+                    opacity: 1 !important; /* Force certains navigateurs comme Safari/Chrome à l'afficher */
+                  }
+                `}</style>
+
                 <Form.Control 
                   type="text"
                   placeholder={s.searchPlaceholder}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="p-3 shadow-sm"
+                  className="p-3 shadow-sm custom-search" // 👈 On ajoute la classe ici pour la cibler
                   style={{
                     borderRadius: '30px',
                     border: '1px solid #CCC',
@@ -333,9 +342,8 @@ const App: React.FC = () => {
   </Row>
 )}
 
-      
-        {/* ÉTAPE 3 : FORMULAIRE ET CALENDRIER (VERSION FIGMA) */}
-        {/* ÉTAPE 3 : FORMULAIRE ET CALENDRIER (VERSION FIGMA) */}
+
+        {/* ÉTAPE 3 : FORMULAIRE ET CALENDRIER */}
         {step === 'form' && (
           <Row className="justify-content-center">
             <Col lg={10}>
@@ -503,7 +511,6 @@ const App: React.FC = () => {
         )}
 
         {/* ÉTAPE 4 : CONFIRMATION DE SUCCÈS */}
-        {/* ÉTAPE : SUCCÈS / CONFIRMATION (image_77f9a3.png) */}
         {step === 'success' && (
           <div className="text-center py-5 my-5 text-white animate__animated animate__fadeIn">
             {/* Icône de coche orange stylisée comme sur la maquette */}
@@ -514,9 +521,15 @@ const App: React.FC = () => {
             </div>
 
             {/* Titre dynamique sans nom en dur */}
-            <h1 className="fw-bold mb-3 display-4" style={{ fontFamily: "'Inter', sans-serif" }}>
-              {isDark ? 'Thank you!' : 'Merci !'}
-            </h1>
+          <h1 
+            className="fw-bold mb-3 display-4" 
+            style={{ 
+              fontFamily: "'Inter', sans-serif",
+              color: isDark ? '#FFF' : '#2D2D2D' //
+            }}
+          >
+            {isDark ? 'Thank you!' : 'Merci !'}
+          </h1>
 
             {/* Message de confirmation */}
             <p className="fs-5 text-secondary mx-auto" style={{ maxWidth: '600px', color: '#a0a0a9' }}>

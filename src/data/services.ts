@@ -1,4 +1,7 @@
-import nattesImg from '../assets/nattes.jpg';
+import nattesImg from '../assets/images/nattes.jpg';
+import washImage from '../assets/images/hair-wash.webp';
+import braidsImage from '../assets/images/box-braids.jpg';
+import bouclesImage from '../assets/images/boucles.jpeg';
 
 export interface ServiceItem {
   id: string;
@@ -67,7 +70,7 @@ export const servicesData: Record<'abdramane' | 'fahima', LocalizationContent> =
         description: "Traitement intensif à la vapeur pour restaurer l'hydratation naturelle des boucles et stimuler la pousse.",
         inclusions: ["Bain d'huiles naturelles", "Casque à vapeur", "Massage du cuir chevelu"],
         preparation: "Aucune préparation requise. Laissez-nous prendre soin de vous.",
-        image: nattesImg
+        image: washImage
       },
       {
         id: "coupe-afro",
@@ -78,7 +81,7 @@ export const servicesData: Record<'abdramane' | 'fahima', LocalizationContent> =
         description: "Coupe sur cheveux secs pour harmoniser la forme de votre afro, suivie d'un wash-and-go parfait.",
         inclusions: ["Coupe personnalisée", " Shampoing sans sulfate", "Définition aux doigts (Finger coiling)"],
         preparation: "Veuillez venir avec vos cheveux lavés de la veille et sans produits lourds.",
-        image: nattesImg
+        image: bouclesImage
       }
     ]
   },
@@ -109,7 +112,7 @@ export const servicesData: Record<'abdramane' | 'fahima', LocalizationContent> =
           "Blow-dry included in the package."
         ],
         preparation: "Please arrive with your hair detangled and ready for washing.",
-        image: nattesImg,
+        image: washImage,
         products: "Organic hydrating shampoos, shea butter deep conditioners, and natural protective oils."
       },
       {
@@ -121,7 +124,7 @@ export const servicesData: Record<'abdramane' | 'fahima', LocalizationContent> =
         description: "Classic protective full-head box braids with neat, high-contrast clean partings.",
         inclusions: ["Scalp oiling treatment", "Edge styling", "Hot water dipping finishing"],
         preparation: "Hair must be washed, blown out, and fully detangled before arrival.",
-        image: nattesImg
+        image: braidsImage
       }
     ]
   }
