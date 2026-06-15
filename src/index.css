@@ -1,0 +1,19 @@
+/* Personnalisation complète de la barre de défilement (Scrollbar Figma) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F3EFE6; /* Même couleur que le fond pour la rendre invisible */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000000; /* Le curseur noir de ta maquette */
+  border-radius: 20px;
+}
+
+/* Pour Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #000000 #F3EFE6;
+}
